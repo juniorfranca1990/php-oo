@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Orientação a Objetos | Júnior F.</title>
+	<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+	<div id="interface">
+		<header id="topo">
+			<h1>ORIENTAÇÃO A OBJETOS</h1>
+			<nav>
+				<ul>
+					<li><a href="11__relacionamento_entre_objetos.html">Voltar</a></li>
+					<li><a href="13tratamento_erros.html">Avançar</a></li>
+					<li><a href="00definicaoOO.html">Inicio</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section>
+			<article>
+				<h3>Autoload</h3>
+
+				<p>A função autoload é utilizada no PHP para fazer o carregamento automático das classes.<br/>
+				Sempre que desejarmos criar um objeto, temos que ter obrigatoriamente a classe responsável pela criação do objeto carregada na memória, caso contrário o PHP retornará um erro. Para carregar classes na memória podemos carregar todas as classes no inicio do documento utilizando o comando include_once ou com o mesmo comando imediatamente antes de instanciar um objeto.</p>
+
+				<p>A função autoload é utilizada no PHP para fazer o carregamento automático das classes<br/>
+				O grande problema é que o include_once carrega na memória as classes mesmo que você não use. Muitas vezes uma classe só é utilizada se o usuário fizer alguma requisição no sistema, um determinado passo, ou se o usuário der um clique em um botão, etc. Para resolver e simplificar tal procedimento o PHP disponibiliza a função de “carregamento automático”, que é a função autoload, que carrega a classe apenas quando um objeto dessa classe for criada, tornando o processo de carregamento das classes para a memória dinâmico.</p>
+				<p><strong>
+					<center>///////////////////////// INFORMAÇÃO IMPORTANTE \\\\\\\\\\\\\\\\\\\\\\\\\\\</center> <br/>
+					<center>// <em>O NOME DA CLASSE TEM QUE SER O MESMO NOME DO ARQUIVO .html NO AUTOLOAD</em> \\</center> <br/>
+					<center>//////////////////////// SE NÃO, ELE NÃO FUNCIONA \\\\\\\\\\\\\\\\\\\\\\\\\\</center> <br/>
+				</strong></p>
+			</article>
+<article>
+<p><strong>Crie um arquivo com o nome teste1.html</strong></p>
+<pre>
+	class teste1{
+
+		public function exibeNome(){
+			echo "Fulano";
+		}
+	}
+</pre>
+</article>
+
+<article>
+<p><strong>Crie outro arquivo com o nome teste2.html</strong></p>
+<pre>
+	class teste2 extends teste1{
+
+		public function exibeIdade(){
+			echo "40";
+		}
+	}
+</pre>
+</article>
+
+<article>
+<p><strong>Crie outro arquivo com o nome autoload.html</strong></p>
+<pre>
+	function __autoload($classe){
+		include_once("{$classe}.html");
+	}
+
+	$nome = new teste1();
+	$nome->exibeNome();
+	
+	$idade = new teste2();
+	$idade->exibeIdade();
+</pre>
+
+		</section>
+		
+		<aside>
+			<h3>Indice</h3>
+			<ul>
+				<li><a href="00definicaoOO.html">Definiçao</a></li>
+				<li><a href="01classe.html">Classe</a></li>
+				<li><a href="02objeto.html">Objeto</a></li>
+				<li><a href="03construtor.html">Construtor e Destrutor</a></li>
+				<li><a href="04encapsulamento.html">Encapsulamento</a></li>
+				<li><a href="05set_get.html">Set e Get</a></li>
+				<li><a href="06heranca.html">Herança</a></li>
+				<li><a href="07__polimorfismo.html">Polimorfismo</a></li>
+				<li><a href="08__classes_metodos_abstratos.html">Abstração</a></li>
+				<li><a href="09constante.html">Constante</a></li>
+				<li><a href="10propriedades_metodos_estaticos.html">Estatico</a></li>
+				<li><a href="11__relacionamento_entre_objetos.html">Relacionamento entre objetos</a></li>
+				<li><a href="12autoload.html">Autoload</a></li>
+			</ul>
+		</aside>
+
+		<footer>
+			<p>Júnior F.</p>
+			<p>A maioria do conteúdo peguei no site <a href="http://cafeesoftware.com/curso-de-php-orientado-a-objetos/" target="_blank">Café e Software</a></p>
+		</footer>	
+	</div>
+</body>
+</html>

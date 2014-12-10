@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Orientação a Objetos | Júnior F.</title>
+	<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+	<div id="interface">
+		<header id="topo">
+			<h1>ORIENTAÇÃO A OBJETOS</h1>
+			<nav>
+				<ul>
+					<li><a href="10propriedades_metodos_estaticos.html">Voltar</a></li>
+					<li><a href="12autoload.html">Avançar</a></li>
+					<li><a href="00definicaoOO.html">Inicio</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section>
+			<article>
+				<h3>Relacionamento entre objetos</h3>
+				<p>Em OO é comum que objetos se relacionem um com os outros para desempenhar suas tarefas.
+				Os relacionamentos existentes: ASSOCIAÇÃO | AGRAGAÇÃO | COMPOSIÇÃO</p>
+
+				<strong><p>Associação:</strong> <em>É a relação mais comum entre dois objetos. Quando acontece? Quando uma classe “usa” outra classe.
+					Exemplo: Um motorista utiliza (depende do carro, mas este não faz parte do motorista) o carro para trabalhar.</em></p>
+
+				<strong><p>Agregação:</strong> <em>É o tipo de relação conhecida como todo/parte. Na agregação o objeto agrega outro objeto, ou seja, torna um objeto externo parte de si.. Assim o objeto pai poderá utilizar funcionalidades do objeto agregado, mas ele não depende dele (agregado) para existir.
+					Exemplo: A tampa de uma caneta é parte da caneta, se a caneta não tiver a tampa, ela não deixará de ser uma caneta.</em></p>
+					 
+				<strong><p>Composição:</strong> <em>Neste caso, o objeto-pai é responsável pela criação e destruição de suas partes. O objeto-pai realmente “possui” as instâncias de suas partes. Resumidamente, um só existe caso o outro também exista.</em></p>
+				
+				<p>Exemplo: O motor de um carro é parte fundamental do carro.</p>
+			</article>
+			
+<p><em>ASSOCIAÇÃO</em>
+<pre>
+	class Produto{
+
+		public $nome;
+		public $fornecedor;
+
+		public function __construct($nome, $fornecedor){
+			$this->nome = $nome;
+			$this->fornecedor = $fornecedor;
+		}
+	}
+	class Fornecedor{
+
+		public $razaoSocial;
+		public $endereco;
+
+		public function __construct($razaoSocial, $endereco){
+			$this->razaoSocial = $razaoSocial;
+			$this->endereco = $endereco;
+		}
+	}
+	$fornecedor = new Fornecedor("Mercado pague-menos", "Rua C");
+
+	$produto = new Produto("Arroz", $fornecedor);
+
+	echo "Produto: ".$produto->nome;
+	echo "Fornecedor: ".$produto->fornecedor->razaoSocial;
+</pre
+</p>
+
+<h2>FALTAM EXEMPLOS PRATICOS DE AGRAGAÇÃO E COMPOSIÇÃO</h2>
+
+		</section>
+		
+		<aside>
+			<h3>Indice</h3>
+			<ul>
+				<li><a href="00definicaoOO.html">Definiçao</a></li>
+				<li><a href="01classe.html">Classe</a></li>
+				<li><a href="02objeto.html">Objeto</a></li>
+				<li><a href="03construtor.html">Construtor e Destrutor</a></li>
+				<li><a href="04encapsulamento.html">Encapsulamento</a></li>
+				<li><a href="05set_get.html">Set e Get</a></li>
+				<li><a href="06heranca.html">Herança</a></li>
+				<li><a href="07__polimorfismo.html">Polimorfismo</a></li>
+				<li><a href="08__classes_metodos_abstratos.html">Abstração</a></li>
+				<li><a href="09constante.html">Constante</a></li>
+				<li><a href="10propriedades_metodos_estaticos.html">Estatico</a></li>
+				<li><a href="11__relacionamento_entre_objetos.html">Relacionamento entre objetos</a></li>
+				<li><a href="12autoload.html">Autoload</a></li>
+			</ul>
+		</aside>
+
+		<footer>
+			<p>Júnior F.</p>
+			<p>A maioria do conteúdo peguei no site <a href="http://cafeesoftware.com/curso-de-php-orientado-a-objetos/" target="_blank">Café e Software</a></p>
+		</footer>	
+	</div>
+</body>
+</html>
