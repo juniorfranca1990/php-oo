@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Orientação a Objetos | Júnior F.</title>
+	<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+	<div id="interface">
+		<header id="topo">
+			<h1>ORIENTAÇÃO A OBJETOS</h1>
+			<nav>
+				<ul>
+					<li><a href="04encapsulamento.php">Voltar</a></li>
+					<li><a href="06heranca.php">Avançar</a></li>
+					<li><a href="00definicaoOO.php">Inicio</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section>
+					<article>
+						<h2>Intercepções</h2>
+
+						<p>Métodos de intercepção são métodos especiais predefinidos no PHP. Seus nomes são reservados, todos prefixados com dois caracteres “_” (underscore) no início.
+						Os métodos __set(), __get() e __call são alguns desses métodos</p>
+					</article>
+
+					<article>
+						<h3>__set()</h3>
+
+						<p>O método __set() é invocado toda vez que um atributo não declarado da classe recebe a atribuição de um valor. Este método espera dois parâmetros, o primeiro contendo o nome do atributo e o segundo seu valor. 
+						Em resumo, toda vez que for atribuído um valor a uma propriedade do objeto, automaticamente esta atribuição passa pelo método __set().</p>
+					</article>
+
+					<article>
+						<h3>__get()</h3>
+
+						<p>Análogo ao método __set(), o __get() é chamado quando um atributo da classe precisa ser retornado para o objeto. Ele espera um parâmetro, que será preenchido com o nome do atributo chamado.
+						Para exemplificar melhor o uso do __get(), vamos ao exemplo:</p>
+					</article>
+	<pre>
+	class Pessoa{
+		protected $nome;
+
+		function setNome($nome){
+			$this->nome = $nome;
+		}
+		function getNome(){
+			return $this->nome;
+		}
+	}
+	$pessoa = new Pessoa();
+	$pessoa->setNome("Fulano");
+	echo "Nome: ".$pessoa->getNome();
+	</pre>
+		</section>
+		
+		<aside>
+			<h3>Indice</h3>
+			<ul>
+				<li><a href="00definicaoOO.php">Definiçao</a></li>
+				<li><a href="01classe.php">Classe</a></li>
+				<li><a href="02objeto.php">Objeto</a></li>
+				<li><a href="03construtor.php">Construtor e Destrutor</a></li>
+				<li><a href="04encapsulamento.php">Encapsulamento</a></li>
+				<li><a href="05set_get.php">Set e Get</a></li>
+				<li><a href="06heranca.php">Herança</a></li>
+				<li><a href="07__polimorfismo.php">Polimorfismo</a></li>
+				<li><a href="08__classes_metodos_abstratos.php">Abstração</a></li>
+				<li><a href="09constante.php">Constante</a></li>
+				<li><a href="10propriedades_metodos_estaticos.php">Estatico</a></li>
+				<li><a href="11__relacionamento_entre_objetos.php">Relacionamento entre objetos</a></li>
+				<li><a href="12autoload.php">Autoload</a></li>
+			</ul>
+		</aside>
+
+		<footer>
+			<p>Júnior F.</p>
+			<p>A maioria do conteúdo peguei no site <a href="http://cafeesoftware.com/curso-de-php-orientado-a-objetos/" target="_blank">Café e Software</a></p>
+		</footer>	
+	</div>
+</body>
+</html>
